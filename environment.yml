@@ -1,0 +1,22 @@
+name: pr-title-generator
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - cudatoolkit
+  - fastapi
+  - nltk
+  # - uvicorn
+  # - pydantic
+  - pytorch
+  - python=3.8
+  - pip
+  - pip:
+    - transformers
+    - regex
+    - streamlit
+    - pyperclip
+    - requests==2.22.0
+    - beautifulsoup4==4.8.1
+    - datasets
