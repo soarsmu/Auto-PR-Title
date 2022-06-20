@@ -8,6 +8,7 @@
 
 
 The structure is supposed to look like this:
+
 <img width="175" alt="image" src="https://user-images.githubusercontent.com/7076833/174555290-0abfd8e9-db4b-423a-ac36-35ab0edd3227.png">
 
 
