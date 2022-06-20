@@ -2,9 +2,9 @@
 
 ## Prerequisite:
 
-    1. Clone the project at <path_to_directory>
-    2. Download model from https://smu-my.sharepoint.com/:u:/g/personal/ivanairsan_smu_edu_sg/EYRCeoG9NyFFr2j6356ZZJQBKZtrmt1LamLHG4kFlYVuZQ?e=BMcnur
-    3. Put the unzipped model folder under <path_to_directory>/Auto-PR-Title
+1. Clone the project at <path_to_directory>
+2. Download model from https://smu-my.sharepoint.com/:u:/g/personal/ivanairsan_smu_edu_sg/EYRCeoG9NyFFr2j6356ZZJQBKZtrmt1LamLHG4kFlYVuZQ?e=BMcnur
+3. Put the unzipped model folder under <path_to_directory>/Auto-PR-Title
 
 
 The structure is supposed to look like this:
