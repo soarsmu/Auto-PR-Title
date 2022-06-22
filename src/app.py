@@ -40,20 +40,20 @@ def parse_source(issue_urls, branch_url):
 	for commit in commits:
 		commit_message = commit['commit']['message']
 		commit_messages.add(commit_message)
-	return list(issue_title)[0], ' '.join(list(commit_messages))
+	return ' '.join(list(issue_title)), ' '.join(list(commit_messages))
 
 
 def main(model):
-	"""PR Title Generator"""
+	"""AutoPRTitle"""
 
-	st.title("PR Title Generator")
+	st.title("AutoPRTitle")
 	menu=['Home', 'About']
 	st.sidebar.write("🐹 This is a pull request generator tool for ICSME's paper <add_url>")
 	
 	with st.form(key='form1'):
-		branch_url = st.text_input("Enter Branch Comparison URL", placeholder="URL to branch comparison URL (url after clikcing new Pull Request)")
-		issue_url = st.text_input("Enter Issue URL (Optional)", placeholder="URL to issue")
-		description = st.text_area("Enter PR description", placeholder="description")
+		branch_url = st.text_input("Enter Branch Comparison URL", placeholder="branch comparison page (the URL can be obtained after clicking `New Pull Request` button)")
+		issue_url = st.text_input("Enter Issue URL(s) (Optional)", placeholder="URL to the related issue(s), separated by comma `,`")
+		description = st.text_area("Enter PR description (Optional)", placeholder="description")
 		submit_button = st.form_submit_button(label='Generate PR Title', on_click=callback)
 
 	if "submit_button" not in st.session_state:
@@ -77,11 +77,11 @@ def main(model):
 
 		st.subheader("Generated PR Title: ")
 		st.write(title)
-		copy_button = st.button("Copy", on_click=copy_callback(title))
+		# copy_button = st.button("Copy", on_click=copy_callback(title))
 
-		if copy_button:
-			pyperclip.copy(title)
-			st.success("Copied!")
+		# if copy_button:
+		# 	pyperclip.copy(title)
+		# 	st.success("Copied!")
 
 
 if __name__ == '__main__':

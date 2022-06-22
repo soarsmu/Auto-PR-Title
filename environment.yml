@@ -7,8 +7,6 @@ dependencies:
   - cudatoolkit
   - fastapi
   - nltk
-  # - uvicorn
-  # - pydantic
   - pytorch
   - python=3.8
   - pip
