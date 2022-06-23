@@ -15,17 +15,17 @@ def parse_source(issue_urls, branch_url):
 	# process issue url
 	issue_title = set()
 	commit_messages = set()
-	issue_urls = issue_urls.split(',')
-
-	for issue_url in issue_urls:
-		issue_url = issue_url.replace("github.com", "api.github.com/repos")
-		response = requests.get(issue_url)
-		try:
-			issue_title.add(response.json()['title'])
-		except Exception as e:
-			print(f"Requesting to {issue_url}")
-			print(f"response: {response}")
-			print(f"Exception: {e}")
+	if len(issue_urls) > 0:
+		issue_urls = issue_urls.split(',')
+		for issue_url in issue_urls:
+			issue_url = issue_url.replace("github.com", "api.github.com/repos")
+			response = requests.get(issue_url)
+			try:
+				issue_title.add(response.json()['title'])
+			except Exception as e:
+				print(f"Requesting to {issue_url}")
+				print(f"response: {response}")
+				print(f"Exception: {e}")
 
 	# process commits
 	branch_url = branch_url.replace("github.com", "api.github.com/repos")
@@ -48,10 +48,10 @@ def main(model):
 
 	st.title("AutoPRTitle")
 	menu=['Home', 'About']
-	st.sidebar.write("🐹 This is a pull request generator tool for ICSME's paper <add_url>")
+	# st.sidebar.write("🐹 This is a pull request generator tool for ICSME's paper <add_url>")
 	
 	with st.form(key='form1'):
-		branch_url = st.text_input("Enter Branch Comparison URL", placeholder="branch comparison page (the URL can be obtained after clicking `New Pull Request` button)")
+		branch_url = st.text_input("Enter New Pull Request URL", placeholder="URL can be obtained after clicking `New Pull Request` button in GitHub page")
 		issue_url = st.text_input("Enter Issue URL(s) (Optional)", placeholder="URL to the related issue(s), separated by comma `,`")
 		description = st.text_area("Enter PR description (Optional)", placeholder="description")
 		submit_button = st.form_submit_button(label='Generate PR Title', on_click=callback)
